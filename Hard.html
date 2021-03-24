@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>Hard Page</title>
+    <link rel="stylesheet" href="css/hard.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.css">
+    <script src="js/hard.js"></script>
+</head>
+<body>
+    <div class="menu">video 1</div>
+    <div class="main">
+        <figure>
+        <video id="harry">
+        <source src="audio_video/Harry Potter Edited.mp4" type="video/mp4">
+         Your browser does not support HTML5 video.
+        </video>
+        <audio id="adesc1" aria-hidden="true">
+        <source src="audio_video/Harry Potter audio description.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+        </audio>
+        <div class="media-controls">
+        <button id="playStop" onclick="PlayPause()"><i id="play_pause_icon" class="far fa-play-circle"></i></button>
+        <button id="audioDesc" onclick="audioDesc()" data-ad="OFF"><i id="ad" class="fas fa-audio-description"></i></button>
+        </div>
+        </figure>
+    </div>
+</body> 
+</html>
