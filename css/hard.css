@@ -1,54 +1,58 @@
-video{
-    width: 100%;
-    height: 70%;
-    padding: 5px;
-}
 * {
-    box-sizing: border-box;
-  }
-  .menu {
-    width: 25%;
-    height: 100vh;
-    float: left;
-    border: 1px solid red;
-  }
-  
-  .main {
-    width: 75%;
-    height: 100vh;
-    float: left;
-    padding: 15px;
-    border: 1px solid red;
-  }
-  button{
-      border:none;
-      background: none;
-      cursor: pointer;
-  }
-  button:hover{
-      color: darkred
-  }
-  .pressed{
-      background-color: darkseagreen;
-      outline: 1px solid green;
-  }
-  .media-controls{
-      background-color: lightskyblue;
-      position:relative;
-      padding: 5px;
-      border: 1px solid rgb(0, 0, 0);
-      border-radius: 0.5rem;
-      box-shadow: 
-  0 1px 2px #fff, /*bottom external highlight*/
-  0 -1px 1px #666, /*top external shadow*/ 
-  inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/ 
-  inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
-  }
-  figure{
-    background-image: linear-gradient(grey, black);
-    border-radius: 0.5rem;
-  }
-  #playStop, #audioDesc{
-      font-size: 2rem;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: blueviolet;
+}
+.sidebar {
+  background-color: black;
+  flex: 0.15;
+  background-color: #f1f1f1;
+  overflow: auto;
+  margin: 5px;
+}
+.iframeContainer {
+  background-color: #f1f1f1;
+  margin: 5px;
+  flex: 0.85;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.responsive-iframe {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#vjsPlayer {
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+}

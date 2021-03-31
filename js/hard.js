@@ -1,59 +1,76 @@
+function changeCurrent(ev){
+    const sidebar=document.querySelector('.sidebar');
+    for(var i=0;i<sidebar.childElementCount;i++){
+        if(sidebar.children[i].classList.contains('active')){
+            sidebar.children[i].classList.remove('active')
+        }    
+    }
+    const currentElement=ev.srcElement;
+    currentElement.classList.toggle('active'); 
+}
+const video=videojs('vjsPlayer',{
+    controls:true
+})
+
+videojs('vjsPlayer', {}, function() {
+    var ratioVolume = 0.5;
+    var audioDescription = document.getElementById('audiodescription');
+    if ( audioDescription ) {
+        
+        var ADButton = this.controlBar.addChild('button');
+        
+        ADButton.el_.classList.add('vjs-icon-audio-description');
+        ADButton.el_.style.fontSize='1.8em'
+          
+        ADButton.el_.style.width='2em'  
+        ADButton.el_.title='Audio description'
+        
+        //on redéfini les volumes
+        audioDescription.volume = 0;
+        this.volume( ratioVolume );
+        
+        //toggle sur le bouton pour "mute" l'audio-description ou non
+        ADButton.on('click', function( e ) {
+            if( audioDescription.volume ){
+                audioDescription.volume = 0;
+                ADButton.el_.style.color='white' 
   
-var time;
-function PlayPause(){
-
-    var icon1= document.getElementById("play_pause_icon");
-    var video1 = document.getElementById("harry");
-    var audio1 = document.getElementById("adesc1");
-
-    if(video1.paused)
-    {
-        icon1.classList.replace("fa-play-circle", "fa-pause-circle");
-        console.log("Start Playing");
-        video1.play();
+            } else {
+              ADButton.el_.style.color='red' 
+                audioDescription.volume = 0.5;
+            }
+        });
+        this.on('play', function() {
+            if ( audioDescription.paused ) {
+                audioDescription.play();
+            }
+        });
+  
+        this.on('pause', function() {
+            if (  this.currentTime()<=170) {
+              console.log('enter');
+                audioDescription.pause();
+            }
+        });
+  
+        this.on('ended', function() {
+            this.pause();
+            //audioDescription.pause();
+        });
+  
+        this.on('volumechange', function() {
+          if( audioDescription.volume ) {
+            audioDescription.volume = this.volume();
+          }
+        });
+      
+        this.on('timeupdate', function() {
+            if ( audioDescription.readyState >= 4 ) {
+                if( Math.ceil(audioDescription.currentTime) != Math.ceil(this.currentTime()) ) {
+                    audioDescription.currentTime = this.currentTime();
+                }
+            }
+        });
     }
-    else
-    {
-        icon1.classList.replace("fa-pause-circle", "fa-play-circle");
-        video1.pause();
-        audio1.pause();
-        console.log("Stop Playing");
-    } 
-
-    if(video1.ended)
-    {
-    icon1.classList.replace("fa-pause-circle", "fa-play-circle");
-    video1.currentTime = 0;
-    video1.play();
-    }  
-}
-function audioDesc(){
-    
-    var ic = document.getElementById("ad");
-    var btn = document.getElementById("audioDesc");
-    var state = btn.getAttribute("data-ad");
-    var video1 = document.getElementById("harry");
-    var audio1 = document.getElementById("adesc1");
-
-    ic.classList.toggle("pressed");
-
-    if(state == "OFF")
-    {
-       btn.setAttribute("data-ad", "ON");
-       if(!(video1.paused))
-       {
-       video1.pause()    
-       time = video1.currentTime;
-       audio1.currentTime = time;
-       video1.play();
-       audio1.play();
-        }  
-    }
-    
-    else{
-        btn.setAttribute("data-ad", "OFF");
-        audio1.pause();
-    }
-}
-
+  });
  
