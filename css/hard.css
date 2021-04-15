@@ -39,6 +39,11 @@
   color: white;
 }
 
+.sidebar a:focus:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
 .responsive-iframe {
   top: 0;
   left: 0;
