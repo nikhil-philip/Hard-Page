@@ -61,3 +61,21 @@ h1 {
   text-align: center;
   padding: 20px;
 }
+
+.btn {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.container-timenow {
+  max-width: 200px;
+  margin: auto;
+}
+
+.captionText {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.hidden {
+  display: none;
+}
