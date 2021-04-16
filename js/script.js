@@ -37,7 +37,35 @@ if (timeNow) {
     }
   }
 }
-function isSpeaking() {
-  var amISpeaking = synth.speaking;
-  return amISpeaking;
-}
+
+let isFullscreen = false;
+
+/*G to fullscreen*/
+document.onkeyup = function (e) {
+  if (e.which == 71) {
+    var elem = document.documentElement;
+    if (!isFullscreen) {
+      isFullscreen = true;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    } else {
+      isFullscreen = false;
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        /* IE11 */
+        document.msExitFullscreen();
+      }
+    }
+  }
+};

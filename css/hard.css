@@ -44,6 +44,11 @@
   color: white;
 }
 
+.sidebar p {
+  padding: 1rem;
+  color: red;
+}
+
 .responsive-iframe {
   top: 0;
   left: 0;
