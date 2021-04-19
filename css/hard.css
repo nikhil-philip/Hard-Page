@@ -44,6 +44,11 @@
   color: white;
 }
 
+.sidebar p {
+  padding: 1rem;
+  color: red;
+}
+
 .responsive-iframe {
   top: 0;
   left: 0;
@@ -60,4 +65,31 @@
 h1 {
   text-align: center;
   padding: 20px;
+}
+
+.btn {
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.container-timenow {
+  max-width: 200px;
+  margin: auto;
+}
+
+.captionText {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.hidden {
+  display: none;
+}
+
+.container-contact {
+  max-width: 400px;
+  margin: auto;
+}
+.container-contact input {
+  padding: 0.4rem;
+  margin-bottom: 1rem;
 }
