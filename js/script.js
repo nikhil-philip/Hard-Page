@@ -1,5 +1,8 @@
 function changeCurrent(ev) {
   const sidebar = document.querySelector(".sidebar");
+  const changeName = document.querySelector(".changeName");
+  const iframe = document.querySelector(".responsive-iframe");
+  console.log(iframe);
   for (var i = 0; i < sidebar.childElementCount; i++) {
     if (sidebar.children[i].classList.contains("active")) {
       sidebar.children[i].classList.remove("active");

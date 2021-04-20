@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile test</title>
+  </head>
+  <body>
+    <script src="js/shake.js"></script>
+    <script>
+      var myShakeEvent = new Shake({
+        threshold: 15, // optional shake strength threshold
+        timeout: 1000, // optional, determines the frequency of event generation
+      });
+
+      // Start listening to device motion
+      myShakeEvent.start();
+
+      // Register a shake event listener on window with your callback
+      window.addEventListener("shake", shakeEventDidOccur, false);
+
+      //function to call when shake occurs
+      function shakeEventDidOccur() {
+        //put your own code here etc.
+        alert("shake!");
+      }
+    </script>
+  </body>
+</html>
