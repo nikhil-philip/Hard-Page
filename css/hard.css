@@ -125,3 +125,10 @@ ul.breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
 }
+
+.bgChange {
+  background-color: #fcd34d;
+}
+.body p {
+  text-align: center;
+}
